@@ -1,64 +1,171 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Picks</title>
+  <title>Girls Bedroom - Shopping List</title>
   <style>
-    :root { --bg:#f6f7f9; --card:#fff; --text:#1c1f23; --muted:#5f6670; --accent:#ff9900; --accent-text:#111; --border:#e2e5e9; }
-    @media (prefers-color-scheme: dark) {
-      :root { --bg:#111418; --card:#1a1e24; --text:#eceff3; --muted:#9aa3ae; --border:#2b313a; }
+    :root {
+      --bg: #f6f7f9;
+      --card: #fff;
+      --text: #1c1f23;
+      --muted: #5f6670;
+      --accent: #ff9900;
+      --accent-text: #111;
+      --border: #e2e5e9;
     }
-    * { box-sizing: border-box; }
-    body { margin:0; background:var(--bg); color:var(--text); font-family: system-ui, sans-serif; line-height:1.4; }
-    main { max-width:960px; margin:0 auto; padding:2rem 1rem 3rem; }
-    h1 { margin:0 0 .25rem; }
-    .lead { color:var(--muted); margin:0 0 1.5rem; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1rem; list-style:none; padding:0; margin:0; }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1rem; display:flex; flex-direction:column; gap:.6rem; }
-    .thumb { width:100%; aspect-ratio:1; object-fit:contain; background:#fff; border-radius:6px; display:block; }
-    .ph { display:grid; place-items:center; width:100%; aspect-ratio:1; border-radius:6px; background:var(--bg); color:var(--muted); font-size:.85rem; }
-    .title { font-size:.95rem; font-weight:600; margin:0; flex:1; }
-    .price { font-size:1.1rem; font-weight:700; margin:0; }
-    .price.none { font-size:.9rem; font-weight:400; color:var(--muted); }
-    .btn { display:block; text-align:center; text-decoration:none; background:var(--accent); color:var(--accent-text); font-weight:600; padding:.55rem .75rem; border-radius:999px; }
-    .btn:hover, .btn:focus-visible { filter:brightness(.92); }
-    footer { margin-top:2rem; color:var(--muted); font-size:.8rem; }
-    footer a { color:inherit; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111418;
+        --card: #1a1e24;
+        --text: #eceff3;
+        --muted: #9aa3ae;
+        --border: #2b313a;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      line-height: 1.4;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+
+    h1 {
+      margin: 0 0 .25rem;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .ph {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 6px;
+      background: var(--bg);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .title {
+      font-size: .95rem;
+      font-weight: 600;
+      margin: 0;
+      flex: 1;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .price.none {
+      font-size: .9rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-weight: 600;
+      padding: .55rem .75rem;
+      border-radius: 999px;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      filter: brightness(.92);
+    }
+
+    footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    footer a {
+      color: inherit;
+    }
   </style>
 </head>
+
 <body>
   <main>
-    <h1>My Picks</h1>
+    <h1>Girls Bedroom - Organization</h1>
     <p class="lead">Products I recommend. Prices as of Oct 24, 2026; they are set by Amazon and may change.</p>
     <ul class="grid" id="grid"></ul>
     <footer>
-      <p>As an Amazon Associate I earn from qualifying purchases. Product links are affiliate links: if you buy through them I may earn a commission at no extra cost to you.</p>
-      <p><a href="index.html">Home</a></p>
+      <p>As an Amazon Associate I earn from qualifying purchases. Product links are affiliate links: if you buy through
+        them I may earn a commission at no extra cost to you.</p>
     </footer>
   </main>
 
   <script>
-    // Edit this list. For each product fill in:
-    //   title: product name
-    //   image: URL of a small product image (or null for a placeholder)
-    //   price: e.g. "$24.99" (or null to show "See price on Amazon")
-    //   url:   your affiliate link
     const PRODUCTS = [
-      { title: "Small Wicker Basket 3-Piece Set: Handwoven Natural Paper Rope Storage Baskets (Lined)", image: "https://m.media-amazon.com/images/I/51XSG6+dJ9L._SS135_.jpg", price: "$18.99", url: "https://link.amazon/B0iVsyg0s" },
-      { title: "Wicker Baskets for Organizing, Natural Paper Rope Basket Set with Liner (3 Pack Grey)", image: "https://m.media-amazon.com/images/I/41Hqd3m10zL._SS135_.jpg", price: "$19.99", url: "https://link.amazon/B0i1qx0a0" },
-      { title: "JIASENBAO 4 Pack Adhesive Coat Hooks, Antique Brass", image: "https://m.media-amazon.com/images/I/41Qg5q9kmHL._SS135_.jpg", price: "$19.99", url: "https://link.amazon/B0gPK0qHQ" },
-      { title: "pickpiff 13LB Strong Stick-on Hooks, Pink 4 Pack", image: "https://m.media-amazon.com/images/I/41svEh9+7WL._SS135_.jpg", price: "$9.99", url: "https://link.amazon/B02SuaD9e" },
-      { title: "84ECO 3 Gallon Wicker Trash Can with Lid and Liner", image: "https://m.media-amazon.com/images/I/513z-k3iJHL._SS135_.jpg", price: "$27.99", url: "https://link.amazon/B0hwANDbW" },
-      { title: "Azurphoric Hair Accessories Organizer with Brush Holder (White, 3-Layer)", image: "https://m.media-amazon.com/images/I/41os4hcvFRL._SS135_.jpg", price: "$17.99", url: "https://link.amazon/B09y32s6o" },
-      { title: "Plastic Drawer Storage with 5 Different Sizes Drawers, Clear Light Gray", image: "https://m.media-amazon.com/images/I/41Jewy+YvqL._SS135_.jpg", price: "$19.99", url: "https://link.amazon/B0b2ES0K3" },
-      { title: "Booklov Large Makeup Organizer for Vanity Countertop, White", image: "https://m.media-amazon.com/images/I/51MFavYaz+L._SS135_.jpg", price: "$36.99", url: "https://link.amazon/B0b4hqKVD" },
-      { title: "Hair Accessories Organizer Vanity Makeup Storage Box with Rotatable Drawers", image: "https://m.media-amazon.com/images/I/51PMti1CaRL._SS135_.jpg", price: "$24.99", url: "https://link.amazon/B0jdGIOaX" },
-      { title: "Dahey Headband Holder for Girls, 2-Tier", image: "https://m.media-amazon.com/images/I/41KxiIG8H9L._SS135_.jpg", price: "$11.99", url: "https://link.amazon/B0iQDRXHe" },
-      { title: "Headband Holder, Clear Acrylic Hair Hoop Display Stand", image: "https://m.media-amazon.com/images/I/51TmkEvEDrL._SS135_.jpg", price: "$6.99", url: "https://link.amazon/B0haoYExC" },
-      { title: "Basumee Headband Holder and Organizer", image: "https://m.media-amazon.com/images/I/510Hw+Gab1L._SS135_.jpg", price: "$9.79", url: "https://link.amazon/B08CusFZn" },
-      { title: "Headband Holder Stand, 2-Tier with Removable Dividers", image: "https://m.media-amazon.com/images/I/41ZWC4SARFL._SS135_.jpg", price: "$26.99", url: "https://link.amazon/B075hXY8z" },
-      { title: "DIMJ Drawer Organizer Clothes, 8 Pack", image: "https://m.media-amazon.com/images/I/41HeHJ3YzxL._SS135_.jpg", price: "$17.99", url: "https://link.amazon/B0cYGDy8X" },
+      { title: "Small Wicker Basket 3-Piece Set: Handwoven Natural Paper Rope Storage Baskets (Lined)", image: "https://m.media-amazon.com/images/I/51XSG6+dJ9L.jpg", price: "$18.99", url: "https://link.amazon/B0iVsyg0s" },
+      { title: "Wicker Baskets for Organizing, Natural Paper Rope Basket Set with Liner (3 Pack Grey)", image: "https://m.media-amazon.com/images/I/41Hqd3m10zL.jpg", price: "$19.99", url: "https://link.amazon/B0i1qx0a0" },
+      { title: "JIASENBAO 4 Pack Adhesive Coat Hooks, Antique Brass", image: "https://m.media-amazon.com/images/I/41Qg5q9kmHL.jpg", price: "$19.99", url: "https://link.amazon/B0gPK0qHQ" },
+      { title: "pickpiff 13LB Strong Stick-on Hooks, Pink 4 Pack", image: "https://m.media-amazon.com/images/I/41svEh9+7WL.jpg", price: "$9.99", url: "https://link.amazon/B02SuaD9e" },
+      { title: "84ECO 3 Gallon Wicker Trash Can with Lid and Liner", image: "https://m.media-amazon.com/images/I/513z-k3iJHL.jpg", price: "$27.99", url: "https://link.amazon/B0hwANDbW" },
+      { title: "Azurphoric Hair Accessories Organizer with Brush Holder (White, 3-Layer)", image: "https://m.media-amazon.com/images/I/41os4hcvFRL.jpg", price: "$17.99", url: "https://link.amazon/B09y32s6o" },
+      { title: "Plastic Drawer Storage with 5 Different Sizes Drawers, Clear Light Gray", image: "https://m.media-amazon.com/images/I/41Jewy+YvqL.jpg", price: "$19.99", url: "https://link.amazon/B0b2ES0K3" },
+      { title: "Booklov Large Makeup Organizer for Vanity Countertop, White", image: "https://m.media-amazon.com/images/I/51MFavYaz+L.jpg", price: "$36.99", url: "https://link.amazon/B0b4hqKVD" },
+      { title: "Hair Accessories Organizer Vanity Makeup Storage Box with Rotatable Drawers", image: "https://m.media-amazon.com/images/I/51PMti1CaRL.jpg", price: "$24.99", url: "https://link.amazon/B0jdGIOaX" },
+      { title: "Dahey Headband Holder for Girls, 2-Tier", image: "https://m.media-amazon.com/images/I/41KxiIG8H9L.jpg", price: "$11.99", url: "https://link.amazon/B0iQDRXHe" },
+      { title: "Headband Holder, Clear Acrylic Hair Hoop Display Stand", image: "https://m.media-amazon.com/images/I/51TmkEvEDrL.jpg", price: "$6.99", url: "https://link.amazon/B0haoYExC" },
+      { title: "Basumee Headband Holder and Organizer", image: "https://m.media-amazon.com/images/I/510Hw+Gab1L.jpg", price: "$9.79", url: "https://link.amazon/B08CusFZn" },
+      { title: "Headband Holder Stand, 2-Tier with Removable Dividers", image: "https://m.media-amazon.com/images/I/41ZWC4SARFL.jpg", price: "$26.99", url: "https://link.amazon/B075hXY8z" },
+      { title: "DIMJ Drawer Organizer Clothes, 8 Pack", image: "https://m.media-amazon.com/images/I/41HeHJ3YzxL.jpg", price: "$17.99", url: "https://link.amazon/B0cYGDy8X" },
     ];
 
     const grid = document.getElementById("grid");
@@ -99,4 +206,5 @@
     }
   </script>
 </body>
+
 </html>
