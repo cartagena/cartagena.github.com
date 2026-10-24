@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Picks</title>
+  <style>
+    :root { --bg:#f6f7f9; --card:#fff; --text:#1c1f23; --muted:#5f6670; --accent:#ff9900; --accent-text:#111; --border:#e2e5e9; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#111418; --card:#1a1e24; --text:#eceff3; --muted:#9aa3ae; --border:#2b313a; }
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family: system-ui, sans-serif; line-height:1.4; }
+    main { max-width:960px; margin:0 auto; padding:2rem 1rem 3rem; }
+    h1 { margin:0 0 .25rem; }
+    .lead { color:var(--muted); margin:0 0 1.5rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1rem; list-style:none; padding:0; margin:0; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:1rem; display:flex; flex-direction:column; gap:.6rem; }
+    .thumb { width:100%; aspect-ratio:1; object-fit:contain; background:#fff; border-radius:6px; display:block; }
+    .ph { display:grid; place-items:center; width:100%; aspect-ratio:1; border-radius:6px; background:var(--bg); color:var(--muted); font-size:.85rem; }
+    .title { font-size:.95rem; font-weight:600; margin:0; flex:1; }
+    .price { font-size:1.1rem; font-weight:700; margin:0; }
+    .price.none { font-size:.9rem; font-weight:400; color:var(--muted); }
+    .btn { display:block; text-align:center; text-decoration:none; background:var(--accent); color:var(--accent-text); font-weight:600; padding:.55rem .75rem; border-radius:999px; }
+    .btn:hover, .btn:focus-visible { filter:brightness(.92); }
+    footer { margin-top:2rem; color:var(--muted); font-size:.8rem; }
+    footer a { color:inherit; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>My Picks</h1>
+    <p class="lead">Products I recommend. Prices are set on Amazon and may change.</p>
+    <ul class="grid" id="grid"></ul>
+    <footer>
+      <p>As an Amazon Associate I earn from qualifying purchases. Links above are affiliate links: if you buy through them I may earn a commission at no extra cost to you.</p>
+      <p><a href="index.html">Home</a></p>
+    </footer>
+  </main>
+
+  <script>
+    // Edit this list. For each product fill in:
+    //   title: product name
+    //   image: URL of a small product image (or null for a placeholder)
+    //   price: e.g. "$24.99" (or null to show "See price on Amazon")
+    //   url:   your affiliate link
+    const PRODUCTS = [
+      { title: "Product 1", image: null, price: null, url: "https://link.amazon/B01oVC118" },
+      { title: "Product 2", image: null, price: null, url: "https://link.amazon/B0hGvN2vn" },
+      { title: "Product 3", image: null, price: null, url: "https://link.amazon/B07DSUL6s" },
+      { title: "Product 4", image: null, price: null, url: "https://link.amazon/B01VS9bWD" },
+      { title: "Product 5", image: null, price: null, url: "https://link.amazon/B05rtDAHB" },
+      { title: "Product 6", image: null, price: null, url: "https://link.amazon/B08KYZGGg" },
+      { title: "Product 7", image: null, price: null, url: "https://link.amazon/B04n8TTiI" },
+      { title: "Product 8", image: null, price: null, url: "https://link.amazon/B00tfnEfO" },
+      { title: "Product 9", image: null, price: null, url: "https://link.amazon/B004dPqTP" },
+    ];
+
+    const grid = document.getElementById("grid");
+    for (const p of PRODUCTS) {
+      const li = document.createElement("li");
+      li.className = "card";
+
+      let img;
+      if (p.image) {
+        img = document.createElement("img");
+        img.className = "thumb";
+        img.src = p.image;
+        img.alt = p.title;
+        img.loading = "lazy";
+      } else {
+        img = document.createElement("div");
+        img.className = "ph";
+        img.textContent = "No image yet";
+      }
+
+      const t = document.createElement("h2");
+      t.className = "title";
+      t.textContent = p.title;
+
+      const pr = document.createElement("p");
+      pr.className = "price" + (p.price ? "" : " none");
+      pr.textContent = p.price || "See price on Amazon";
+
+      const a = document.createElement("a");
+      a.className = "btn";
+      a.href = p.url;
+      a.rel = "sponsored noopener";
+      a.target = "_blank";
+      a.textContent = "View on Amazon";
+
+      li.append(img, t, pr, a);
+      grid.append(li);
+    }
+  </script>
+</body>
+</html>
